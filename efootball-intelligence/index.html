@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08120f" />
+    <title>Touchline Lab — eFootball intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#overview" aria-label="Touchline Lab home">
+          <span class="brand-mark">TL<span>.</span></span>
+          <span class="brand-copy"><strong>TOUCHLINE</strong><small>PLAYER INTELLIGENCE</small></span>
+        </a>
+        <div class="side-label">WORKSPACE</div>
+        <nav class="nav-list" aria-label="Main navigation">
+          <button class="nav-item active" data-view="overview"><span class="nav-icon">◈</span>Overview <span class="nav-arrow">↗</span></button>
+          <button class="nav-item" data-view="builder"><span class="nav-icon">⌁</span>Build lab <span class="nav-badge">BETA</span></button>
+          <button class="nav-item" data-view="compare"><span class="nav-icon">⇄</span>Compare cards</button>
+          <button class="nav-item" data-view="research"><span class="nav-icon">▤</span>Research desk</button>
+        </nav>
+        <div class="side-bottom">
+          <div class="side-note"><span class="pulse"></span><div><strong>Research mode</strong><small>Evidence before ratings</small></div></div>
+          <button class="add-player-link" id="open-player-modal"><span>＋</span> Add a player card</button>
+          <div class="sidebar-foot">INDEPENDENT COMMUNITY PROJECT<br />NOT AFFILIATED WITH KONAMI</div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>YOUR WORKSPACE</span><b>/</b><strong id="crumb-current">OVERVIEW</strong></div>
+          <div class="top-actions"><span class="data-status"><i></i> LOCAL DATA</span><button class="icon-button" id="help-button" aria-label="About this app">?</button><div class="avatar">A</div></div>
+        </header>
+
+        <section class="view active" id="view-overview">
+          <div class="page-heading">
+            <div><p class="eyebrow">SUNDAY, OCTOBER 25 <span>·</span> SEASON 2027</p><h1>Know your <em>players.</em></h1><p class="subhead">Turn game stats and community research into clearer decisions.</p></div>
+            <button class="button button-secondary" id="import-button">↥ <span>Import data</span></button><input id="import-file" type="file" accept=".json,.csv" hidden />
+          </div>
+          <div class="stat-strip">
+            <div><span class="strip-label">PLAYERS TRACKED</span><strong id="player-count">01</strong><small>cards in your workspace</small></div>
+            <div><span class="strip-label">TARGETS MET</span><strong class="green" id="targets-met">06<span>/09</span></strong><small>on featured player</small></div>
+            <div><span class="strip-label">RESEARCH SIGNALS</span><strong>09</strong><small>stat thresholds mapped</small></div>
+            <div class="strip-callout"><span class="callout-icon">✳</span><div><strong>Build with a reason.</strong><small>We show the evidence behind each target.</small></div></div>
+          </div>
+          <div class="section-head"><div><p class="eyebrow">FEATURED CARD</p><h2>Your player snapshot</h2></div><select class="select player-select" id="featured-player" aria-label="Choose featured player"></select></div>
+          <div class="feature-grid">
+            <article class="player-card">
+              <div class="player-card-top"><span class="card-chip">EFOOTBALL · YOUR DATA</span><span class="rating">105<small>OVR*</small></span></div>
+              <div class="player-portrait"><div class="portrait-orbit orbit-one"></div><div class="portrait-orbit orbit-two"></div><div class="portrait-initials" id="portrait-initials">DR</div><span class="portrait-tag">CMF</span></div>
+              <div class="player-card-info"><p class="player-nation">BOX-TO-BOX <span>·</span> CMF</p><h3 id="featured-name">Declan Rice</h3><p class="player-skills" id="featured-skills">Fantasista +1 · Weighted Pass · Track Back</p></div>
+              <div class="card-foot"><span>PLAYER PROFILE</span><span>DATASET 01 <b>↗</b></span></div>
+            </article>
+            <article class="panel stat-panel">
+              <div class="panel-title"><div><span class="eyebrow">PERFORMANCE PROFILE</span><h3>Key attributes</h3></div><span class="micro-tag">TRAINED CARD VALUES</span></div>
+              <div class="attribute-list" id="overview-attributes"></div>
+              <div class="panel-foot"><span>Targets are research guides, not game rules.</span><button class="text-button" data-goto="builder">Open build lab <b>→</b></button></div>
+            </article>
+          </div>
+          <div class="below-grid">
+            <article class="panel insight-panel"><div class="panel-title"><div><span class="eyebrow">INTELLIGENCE NOTE</span><h3 id="insight-title">The last full-value point</h3></div><span class="insight-icon">↗</span></div><p id="insight-body">For acceleration, 89 → 90 is the last point with full value in the supplied research. Points beyond 90 still help, but the gains are smaller.</p><div class="insight-source">SOURCE <span>User-supplied eFootBase research · captured Oct 24–25, 2026</span></div></article>
+            <article class="panel quick-panel"><span class="eyebrow">QUICK START</span><h3>What are you working on?</h3><div class="quick-actions"><button data-goto="builder"><span>⌁</span><b>Find a build direction</b><i>→</i></button><button data-goto="compare"><span>⇄</span><b>Compare two cards</b><i>→</i></button></div></article>
+          </div>
+          <p class="disclaimer">* Overall rating and sample player information are from the supplied community research snapshot. This app does not calculate OVR.</p>
+        </section>
+
+        <section class="view" id="view-builder">
+          <div class="page-heading"><div><p class="eyebrow">PROGRESSION PLANNER <span>·</span> RESEARCH-LED</p><h1>Build with <em>intent.</em></h1><p class="subhead">Choose a role and see which stat thresholds deserve attention.</p></div><span class="beta-pill">EXPERIMENTAL</span></div>
+          <div class="builder-layout">
+            <aside class="panel controls-panel"><span class="eyebrow">BUILD SETUP</span><label class="field-label" for="builder-player">Player card</label><select class="select full" id="builder-player"></select><label class="field-label" for="build-role">Build direction</label><select class="select full" id="build-role"><option value="allrounder">All-round midfielder</option><option value="dribbler">Close-control dribbler</option><option value="runner">Box-to-box runner</option><option value="defender">Mobile defender</option></select><div class="rule-line"></div><span class="field-label">Your playstyle</span><label class="check-row"><input type="checkbox" id="uses-fakes" /><span class="checkmark"></span><span>Use fake shots / Acceleration Burst</span></label><div class="budget-note"><span>ⓘ</span><p>We rank the <b>next meaningful thresholds</b>. Exact progression points need a verified cost formula, which this research does not include.</p></div><button class="button button-primary full" id="recalc-button">Refresh recommendations <span>↗</span></button></aside>
+            <div class="build-results"><div class="results-intro"><div><span class="eyebrow">RECOMMENDED TARGETS</span><h2 id="build-title">All-round midfielder</h2></div><span class="result-count" id="build-count">3 PRIORITIES</span></div><div id="recommendations" class="recommendation-list"></div><div class="target-explainer"><span class="explainer-mark">✳</span><div><strong>How to read this</strong><p>“Gap” is the difference between the card value you entered and a researched target. It is <b>not</b> progression-point cost, an OVR forecast, or a guarantee of in-game results.</p></div></div><div class="research-method"><span>METHOD</span><p>Targets are selected by role, ranked by the supplied research’s stated thresholds and diminishing returns. No automatic stat allocation is claimed.</p></div></div>
+          </div>
+        </section>
+
+        <section class="view" id="view-compare">
+          <div class="page-heading"><div><p class="eyebrow">SIDE-BY-SIDE ANALYSIS</p><h1>Choose your <em>edge.</em></h1><p class="subhead">Compare the card values and understand what the difference means.</p></div><button class="button button-secondary" id="compare-add-player">＋ <span>Add player</span></button></div>
+          <div class="compare-selectors"><div><span class="eyebrow">PLAYER A</span><select class="select full" id="compare-a"></select></div><div class="vs">VS</div><div><span class="eyebrow">PLAYER B</span><select class="select full" id="compare-b"></select></div></div>
+          <div class="compare-summary" id="compare-summary"></div>
+          <article class="panel compare-panel"><div class="panel-title"><div><span class="eyebrow">ATTRIBUTE BREAKDOWN</span><h3>Where they differ</h3></div><span class="micro-tag">SUPPLIED CARD VALUES</span></div><div id="compare-attributes"></div><div class="panel-foot"><span>Differences describe the data entered, not match outcomes.</span></div></article>
+        </section>
+
+        <section class="view" id="view-research">
+          <div class="page-heading"><div><p class="eyebrow">EVIDENCE & PROVENANCE</p><h1>Research <em>desk.</em></h1><p class="subhead">Separate measured claims, community research, and our own recommendations.</p></div><button class="button button-secondary" id="research-import">↥ <span>Import JSON</span></button></div>
+          <div class="research-banner"><span>!</span><div><strong>Community research is not an official Konami formula.</strong><p>Targets below are attributed to the research file you provided. Verify game-version claims before treating them as current rules.</p></div></div>
+          <div class="research-grid" id="research-grid"></div>
+          <article class="panel source-panel"><div class="panel-title"><div><span class="eyebrow">DATA SOURCE</span><h3>What’s behind these recommendations?</h3></div><span class="micro-tag">PROVENANCE SAVED</span></div><div class="source-details"><div><span>PROVIDED SOURCE</span><strong>eFootBase articles and community research</strong></div><div><span>CAPTURE WINDOW</span><strong>October 24–25, 2026</strong></div><div><span>PLAYER EXAMPLE</span><strong>Declan Rice · Box-to-Box · CMF · 105 OVR*</strong></div><div><span>CONFIDENCE LABEL</span><strong>Community research · independently unverified</strong></div></div><p class="source-note">eFootBase is an independent community site. This app stores only the research text and player values supplied by you; it does not scrape eFootBase or fetch live player data.</p></article>
+        </section>
+
+        <footer class="app-footer"><span>TOUCHLINE LAB <b>·</b> COMMUNITY RESEARCH, CLEARLY LABELLED</span><button id="footer-about">ABOUT THIS PROJECT ↗</button></footer>
+      </main>
+    </div>
+    <div class="modal-backdrop" id="player-modal" hidden><section class="modal panel" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><div><span class="eyebrow">YOUR WORKSPACE</span><h2 id="modal-title">Add a player card</h2></div><button class="icon-button" id="close-modal" aria-label="Close">×</button></div><p class="modal-intro">Enter the card stats you know. Missing values can stay blank.</p><form id="player-form"><div class="form-grid"><label>Name<input name="name" required maxlength="50" placeholder="e.g. Player Name" /></label><label>Position<input name="position" maxlength="8" placeholder="e.g. CMF" /></label><label>Role<input name="role" maxlength="32" placeholder="e.g. Box-to-Box" /></label><label>Card rating<input name="rating" type="number" min="1" max="110" placeholder="Optional" /></label></div><div class="form-grid stat-form" id="stat-form"></div><div class="modal-actions"><button type="button" class="button button-secondary" id="cancel-modal">Cancel</button><button class="button button-primary" type="submit">Save player <span>↗</span></button></div></form><p class="modal-privacy">Saved only in this browser unless you export your workspace.</p></section></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
+
