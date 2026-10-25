@@ -4,9 +4,13 @@
     "sourceName": "eFootBase articles and community research",
     "sourceUrl": "https://efootbase.com/",
     "captured": "2026-10-24/25",
+    "gameVersion": "eFootball 2027",
+    "confidence": "community-reported; not independently verified",
+    "verificationStatus": "unverified community research",
     "classification": "community research; not an official Konami formula",
     "licenseNote": "User-provided research notes. Keep attribution with imported claims. No live scraping or feed integration is implemented."
   },
+  "researchDefaults": {"applicableGameVersion":"eFootball 2027","capturedAt":"2026-10-24/25","confidence":"community-reported; not independently verified","verificationStatus":"unverified"},
   "targets": [
     {"key":"ballControl","name":"Ball Control","target":86,"category":"control","priority":88,"summary":"86 is the researched target for a 135° outside-foot first touch. This first-touch unlock is card-gated; boosters and form do not count.","nextThresholds":[{"value":79,"effect":"Running trap behind you / outside foot"},{"value":84,"effect":"High ball taken at the side"},{"value":85,"effect":"Marseille-turn first touch (skill required)"},{"value":86,"effect":"135° outside-foot turn"}],"source":"Supplied research · Ball Control / Dribbling / Tight Possession"},
     {"key":"dribbling","name":"Dribbling","target":90,"category":"control","priority":86,"summary":"90 is a practical target; consider 91 if you rely on fake shots or Acceleration Burst. The card-only outside-foot touch gate is 80.","nextThresholds":[{"value":80,"effect":"Three outside-foot first touches (card value only)"},{"value":90,"effect":"Main practical target"},{"value":91,"effect":"Fifth fake-shot / fake-pass timing step"}],"source":"Supplied research · Ball Control / Dribbling / Tight Possession"},
@@ -18,18 +22,26 @@
     {"key":"stamina","name":"Stamina","target":90,"category":"endurance","priority":75,"summary":"The notes describe tank size, not drain rate. Each point from 90 to 99 adds more tank than a point in the 80s.","nextThresholds":[{"value":90,"effect":"Practical target; larger per-point gains from 90 onward"},{"value":99,"effect":"Top of the supplied regular-stat comparison"}],"source":"Supplied research · Balance / Speed / Acceleration / Physical Contact / Stamina"},
     {"key":"dribbleBalance","name":"Dribbling + Balance","target":150,"category":"gate","priority":90,"isCombined":true,"summary":"The supplied notes claim this combined gate is needed to react to a slide tackle / challenge from behind.","source":"Supplied research · Dribbling / Balance"}
   ],
-  "players": [
+  "players": [{"playerId":"player-declan-rice","name":"Declan Rice"}],
+  "cards": [
     {
-      "id":"declan-rice-community-snapshot",
-      "name":"Declan Rice",
+      "cardId":"declan-rice-community-snapshot",
+      "playerId":"player-declan-rice",
+      "cardType":"Unknown",
+      "cardVersion":"eFootBase feed snapshot · 2026-10-23",
+      "gameVersion":"eFootball 2027",
       "position":"CMF",
-      "role":"Box-to-Box",
+      "positions":["CMF"],
+      "playStyle":"Box-to-Box",
+      "team":null,
       "rating":105,
-      "snapshotDate":"2026-10-23",
-      "snapshotSource":"eFootBase feed snapshot included in user-provided notes",
-      "confidence":"community snapshot; card version and values should be verified",
+      "stats":{"offensiveAwareness":77,"ballControl":90,"dribbling":90,"tightPossession":90,"lowPass":91,"loftedPass":90,"finishing":81,"heading":66,"placeKicking":92,"curl":86,"defensiveAwareness":86,"tackling":86,"aggression":88,"defensiveEngagement":89,"speed":90,"acceleration":90,"kickingPower":92,"jumping":72,"physicalContact":82,"balance":82,"stamina":93},
+      "baseStats":null,
+      "trainedStats":null,
       "skills":["Fantasista +1","Double Touch","Weighted Pass","Sliding Tackle","Low Lofted Pass","Track Back"],
-      "stats":{"offensiveAwareness":77,"ballControl":90,"dribbling":90,"tightPossession":90,"lowPass":91,"loftedPass":90,"finishing":81,"heading":66,"placeKicking":92,"curl":86,"defensiveAwareness":86,"tackling":86,"aggression":88,"defensiveEngagement":89,"speed":90,"acceleration":90,"kickingPower":92,"jumping":72,"physicalContact":82,"balance":82,"stamina":93}
+      "boosters":[],
+      "source":{"name":"eFootBase feed snapshot included in user-provided notes","url":"https://efootbase.com/","capturedAt":"2026-10-23","confidence":"community snapshot; card version and values should be verified","verification":"unverified"},
+      "history":[]
     }
   ],
   "roles": {
