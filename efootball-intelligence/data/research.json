@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "provenance": {
+    "sourceName": "eFootBase articles and community research",
+    "sourceUrl": "https://efootbase.com/",
+    "captured": "2026-10-24/25",
+    "gameVersion": "eFootball 2027",
+    "confidence": "community-reported; not independently verified",
+    "verificationStatus": "unverified community research",
+    "classification": "community research; not an official Konami formula",
+    "licenseNote": "User-provided research notes. Keep attribution with imported claims. No live scraping or feed integration is implemented."
+  },
+  "researchDefaults": {"applicableGameVersion":"eFootball 2027","capturedAt":"2026-10-24/25","confidence":"community-reported; not independently verified","verificationStatus":"unverified"},
+  "targets": [
+    {"key":"ballControl","name":"Ball Control","target":86,"category":"control","priority":88,"summary":"86 is the researched target for a 135° outside-foot first touch. This first-touch unlock is card-gated; boosters and form do not count.","nextThresholds":[{"value":79,"effect":"Running trap behind you / outside foot"},{"value":84,"effect":"High ball taken at the side"},{"value":85,"effect":"Marseille-turn first touch (skill required)"},{"value":86,"effect":"135° outside-foot turn"}],"source":"Supplied research · Ball Control / Dribbling / Tight Possession"},
+    {"key":"dribbling","name":"Dribbling","target":90,"category":"control","priority":86,"summary":"90 is a practical target; consider 91 if you rely on fake shots or Acceleration Burst. The card-only outside-foot touch gate is 80.","nextThresholds":[{"value":80,"effect":"Three outside-foot first touches (card value only)"},{"value":90,"effect":"Main practical target"},{"value":91,"effect":"Fifth fake-shot / fake-pass timing step"}],"source":"Supplied research · Ball Control / Dribbling / Tight Possession"},
+    {"key":"tightPossession","name":"Tight Possession","target":90,"category":"control","priority":77,"summary":"The supplied notes say nothing unlocks at a specific value. Gains are larger below 90; 90 to 99 saves only about 5 ms between touches.","nextThresholds":[{"value":90,"effect":"Practical target; diminishing returns above this"}],"source":"Supplied research · Ball Control / Dribbling / Tight Possession"},
+    {"key":"balance","name":"Balance","target":89,"category":"duels","priority":82,"summary":"The supplied notes place a recovery-frame step at 89. Dribbling + Balance must total 150 to react to a challenge from behind.","nextThresholds":[{"value":75,"effect":"Recovery-frame step"},{"value":83,"effect":"Recovery-frame step"},{"value":89,"effect":"Recovery-frame step / practical target"},{"value":95,"effect":"Recovery-frame step"}],"source":"Supplied research · Balance / Speed / Acceleration / Physical Contact / Stamina"},
+    {"key":"speed","name":"Speed","target":90,"category":"movement","priority":87,"summary":"The notes describe stronger per-point gains from 60 to 90 than above 90. With the ball, top speed also depends on Dribbling.","nextThresholds":[{"value":60,"effect":"Start of the high-value range"},{"value":90,"effect":"Practical target; smaller gains above this"}],"source":"Supplied research · Balance / Speed / Acceleration / Physical Contact / Stamina"},
+    {"key":"acceleration","name":"Acceleration","target":90,"category":"movement","priority":89,"summary":"The supplied notes identify 89 → 90 as the last full-value point; points above 90 still help at a lower rate.","nextThresholds":[{"value":89,"effect":"Last full-value point before the final step"},{"value":90,"effect":"Last full-value point / practical target"}],"source":"Supplied research · Balance / Speed / Acceleration / Physical Contact / Stamina"},
+    {"key":"physicalContact","name":"Physical Contact","target":89,"category":"duels","priority":84,"summary":"The research frames this as a gap against the opponent: being 11 or more below the charger causes a heavy stumble in the described interaction.","nextThresholds":[{"value":89,"effect":"Within 10 of a 99-contact opponent"}],"source":"Supplied research · Balance / Speed / Acceleration / Physical Contact / Stamina"},
+    {"key":"stamina","name":"Stamina","target":90,"category":"endurance","priority":75,"summary":"The notes describe tank size, not drain rate. Each point from 90 to 99 adds more tank than a point in the 80s.","nextThresholds":[{"value":90,"effect":"Practical target; larger per-point gains from 90 onward"},{"value":99,"effect":"Top of the supplied regular-stat comparison"}],"source":"Supplied research · Balance / Speed / Acceleration / Physical Contact / Stamina"},
+    {"key":"dribbleBalance","name":"Dribbling + Balance","target":150,"category":"gate","priority":90,"isCombined":true,"summary":"The supplied notes claim this combined gate is needed to react to a slide tackle / challenge from behind.","source":"Supplied research · Dribbling / Balance"}
+  ],
+  "players": [{"playerId":"player-declan-rice","name":"Declan Rice"}],
+  "cards": [
+    {
+      "cardId":"declan-rice-community-snapshot",
+      "playerId":"player-declan-rice",
+      "cardType":"Unknown",
+      "cardVersion":"eFootBase feed snapshot · 2026-10-23",
+      "gameVersion":"eFootball 2027",
+      "position":"CMF",
+      "positions":["CMF"],
+      "playStyle":"Box-to-Box",
+      "team":null,
+      "rating":105,
+      "stats":{"offensiveAwareness":77,"ballControl":90,"dribbling":90,"tightPossession":90,"lowPass":91,"loftedPass":90,"finishing":81,"heading":66,"placeKicking":92,"curl":86,"defensiveAwareness":86,"tackling":86,"aggression":88,"defensiveEngagement":89,"speed":90,"acceleration":90,"kickingPower":92,"jumping":72,"physicalContact":82,"balance":82,"stamina":93},
+      "baseStats":null,
+      "trainedStats":null,
+      "skills":["Fantasista +1","Double Touch","Weighted Pass","Sliding Tackle","Low Lofted Pass","Track Back"],
+      "boosters":[],
+      "source":{"name":"eFootBase feed snapshot included in user-provided notes","url":"https://efootbase.com/","capturedAt":"2026-10-23","confidence":"community snapshot; card version and values should be verified","verification":"unverified"},
+      "history":[]
+    }
+  ],
+  "roles": {
+    "allrounder":{"label":"All-round midfielder","targets":["acceleration","speed","ballControl","physicalContact","balance","stamina"]},
+    "dribbler":{"label":"Close-control dribbler","targets":["ballControl","dribbling","tightPossession","balance","acceleration","speed"]},
+    "runner":{"label":"Box-to-box runner","targets":["stamina","acceleration","speed","physicalContact","balance","ballControl"]},
+    "defender":{"label":"Mobile defender","targets":["physicalContact","speed","acceleration","balance","stamina"]}
+  },
+  "skills": [
+    {"name":"Momentum Dribbling","effect":"Dribbling, Tight Possession, Speed, and Acceleration +6 while carrying the ball 18 m or more past halfway.","category":"situational"},
+    {"name":"Magnetic Feet","effect":"Dribbling, Tight Possession, Physical Contact, and Balance +2 per nearby opponent, up to +8 while carrying the ball.","category":"situational"},
+    {"name":"Super-sub","effect":"+1 to every stat except Stamina when the player comes on at half-time or later.","category":"situational"},
+    {"name":"Through Passing","effect":"+5 pass stat for the through ball itself; this is not a permanent card-stat change.","category":"passing"},
+    {"name":"Visionary Pass","effect":"The receiver gets +6 on their next first-time action, according to the supplied notes.","category":"passing"},
+    {"name":"Interception","effect":"The supplied notes report faster reactions to passes aimed at the marked player and +5 Defensive Engagement when reading passes.","category":"defending"}
+  ]
+}
+
